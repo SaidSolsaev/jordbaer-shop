@@ -7,6 +7,7 @@ import Store from './Pages/Store';
 import Cancel from './Pages/Cancel';
 import Success from './Pages/Success';
 import CartProvider from './Utils/CartContext';
+import AdminPage from './Pages/AdminPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route index element={<Store />} />
             <Route path='success' element={<Success />} />
             <Route path='cancel' element={<Cancel />} />
+            <Route path='admin' element={<AdminPage />} />
           </Routes>
         </Router>
       </Container>

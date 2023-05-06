@@ -9,6 +9,7 @@ export const CartContext = createContext({
     removeOneFromCart: () => {},
     deleteFromCart: () => {},
     getTotalSum: () => {},
+    addProd: () => {},
 });
 
 export function CartProvider({children}) {

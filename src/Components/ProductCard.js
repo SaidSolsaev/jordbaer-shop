@@ -4,6 +4,7 @@ import { CartContext } from '../Utils/CartContext'
 import styled from 'styled-components'
 import {BsTrashFill} from "react-icons/bs"
 import {MdRemove, MdAdd} from "react-icons/md"
+import { addProduct } from '../data/OurProducts'
 
 
 export default function ProductCard(props) {

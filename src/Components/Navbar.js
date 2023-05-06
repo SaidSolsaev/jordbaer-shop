@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import {Button, Container, Navbar, Modal} from "react-bootstrap"
+import {Button, Container, Navbar, Modal, Row, Col} from "react-bootstrap"
 import { CartContext } from '../Utils/CartContext'
 import CartProduct from './CartProduct'
 import {FaShoppingCart} from "react-icons/fa"
@@ -25,7 +25,12 @@ export default function NavbarComponent() {
                 <Navbar.Brand href="/">Jordbær</Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
-                    <Button style={{border: "none", background: "none", color: "#333", fontSize: "22px"}} onClick={handleOpen}><FaShoppingCart /></Button>
+                    <Button style={{border: "none", background: "none", color: "#333", fontSize: "28px"}} onClick={handleOpen}><FaShoppingCart />
+                        {productsCount > 0 ? 
+                        <p style={{backgroundColor: "blue", border: "2px solid blue", borderRadius: "1em", width: "20px", fontSize: "12px", display: "inline-block", right: "2px", top: "12px", position: "absolute", color: "white"}}>{productsCount}</p>
+                        : null
+                        }
+                    </Button>
                 </Navbar.Collapse>
             </Navbar>
 
@@ -37,9 +42,18 @@ export default function NavbarComponent() {
                     {productsCount > 0 ?
                         <>
                             <p align="center">Varer i handlekurven:</p>
+                            <Row>
+                                <Col>Vare</Col>
+                                <Col>Antall</Col>
+                                <Col>Totalt</Col>
+                            </Row>
+                            <hr></hr>
+                            
                             {cart.items.map((currProd, idx) => (
                                 <CartProduct key={idx}  id={currProd.id} qty={currProd.qty}/>
                             ))}
+                            
+                            
                             <h1>Sum: {cart.getTotalSum().toFixed(2)} Kr</h1>
 
                             <Button variant='success'>

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../Utils/CartContext";
 import { getProductData } from "../data/OurProducts";
-import { Button } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import {BsTrashFill} from "react-icons/bs"
 
 function CartProduct(props){
@@ -27,12 +27,23 @@ function CartProduct(props){
 
     return(
         <>
-            <h2>{productData.title}</h2>
-            <p>Antall: {qty}</p>
-            <p>{(productData.price).toFixed(2)} Kr</p>
-            <p>Rabatt: {checkSale().toFixed(2)} Kr</p>
-            <p>Totalt: {(qty * productData.price - checkSale()).toFixed(2)} Kr</p>
-            <Button variant="danger" size="sm" onClick={() => cart.deleteFromCart(id)}><BsTrashFill /></Button>
+        
+            <Row>
+                <Col>
+                    <p>{productData.title}</p>
+                    <p>{(productData.price).toFixed(2)} Kr/stk</p>
+                    <p>Rabatt: {checkSale().toFixed(2)} Kr</p>
+                </Col>
+                <Col>
+                    <p>Antall: {qty}</p>
+                </Col>
+
+                <Col>
+                    <p>{(qty * productData.price - checkSale()).toFixed(2)} Kr</p>
+                </Col>
+                
+            </Row>
+            <Button size="xl" variant="danger" onClick={() => cart.deleteFromCart(id)}><BsTrashFill /></Button>
             <hr></hr>
         </>
     )

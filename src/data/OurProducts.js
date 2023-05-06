@@ -1,6 +1,6 @@
 import jb from "../Images/jb.jpg";
 
-const ProductsData = [
+const ProductsData =  [
     {
         id: "1",
         title: "Jordbær Saga", 
@@ -70,4 +70,20 @@ function getProductData(id){
     return productData;
 }
 
-export {getProductData, ProductsData}
+function addProduct(title, price){
+    let id = 0
+    for (let i = 0; i < ProductsData.length + 1; i++){
+        id += 1
+    }
+    console.log(id)
+
+    ProductsData.push({
+        id: id,
+        title: title,
+        price: price,
+        
+    });
+};
+
+
+export {getProductData, ProductsData, addProduct}
