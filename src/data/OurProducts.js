@@ -70,7 +70,7 @@ function getProductData(id){
     return productData;
 }
 
-function addProduct(title, price){
+function addProduct(title, price, pic){
     let id = 0
     for (let i = 0; i < ProductsData.length + 1; i++){
         id += 1

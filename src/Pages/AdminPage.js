@@ -3,7 +3,6 @@ import {Button, Container, Navbar, Modal, Form} from "react-bootstrap"
 import { addProduct, ProductsData } from '../data/OurProducts';
 
 export default function AdminPage() {
-    const [title, setTitle] = useState("");
     const [show, setShow] = useState(false)
 
     const handleAddProd = () => {
@@ -64,8 +63,8 @@ export default function AdminPage() {
                         Legg til produkt
                     </Button>
                 </Modal.Footer>
-      </Modal>
+            </Modal>
             
         </Container>
     )
-    }
+}

@@ -19,6 +19,12 @@ export default function NavbarComponent() {
 
     const productsCount = cart.items.reduce((sum, product) => sum + product.qty, 0);
 
+    const checkout = () => {
+
+        window.location.assign("/success");
+    }
+    
+
     return (
         <Container>
             <Navbar expand="sm">
@@ -43,9 +49,9 @@ export default function NavbarComponent() {
                         <>
                             <p align="center">Varer i handlekurven:</p>
                             <Row>
-                                <Col>Vare</Col>
-                                <Col>Antall</Col>
-                                <Col>Totalt</Col>
+                                <Col style={{fontSize: "22px", fontWeight: "bold"}}>Vare</Col>
+                                <Col style={{fontSize: "22px", fontWeight: "bold"}}>Antall</Col>
+                                <Col style={{fontSize: "22px", fontWeight: "bold"}}>Totalt</Col>
                             </Row>
                             <hr></hr>
                             
@@ -56,7 +62,7 @@ export default function NavbarComponent() {
                             
                             <h1>Sum: {cart.getTotalSum().toFixed(2)} Kr</h1>
 
-                            <Button variant='success'>
+                            <Button variant='success' onClick={checkout}>
                                 Bestill
                             </Button>
                         </>
