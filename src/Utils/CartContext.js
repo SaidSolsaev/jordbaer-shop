@@ -10,6 +10,7 @@ export const CartContext = createContext({
     deleteFromCart: () => {},
     getTotalSum: () => {},
     addProd: () => {},
+    getAllCartProducts: () => {},
 });
 
 export function CartProvider({children}) {
@@ -25,7 +26,10 @@ export function CartProvider({children}) {
         
         return qauntitty
         
-        
+    }
+
+    function getAllCartProducts(){
+        return cartProducts
     }
 
     function addOneToCart(id){
@@ -49,6 +53,7 @@ export function CartProvider({children}) {
                 )
             )
         }
+        // localStorage.setItem('cartdata', JSON.stringify([...cartProducts, id]))
     }
     
 
@@ -102,7 +107,7 @@ export function CartProvider({children}) {
         removeOneFromCart,
         deleteFromCart,
         getTotalSum,
-        
+        getAllCartProducts
     }
     
     return(

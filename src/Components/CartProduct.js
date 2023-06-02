@@ -3,6 +3,7 @@ import { CartContext } from "../Utils/CartContext";
 import { getProductData } from "../data/OurProducts";
 import { Button, Col, Row } from "react-bootstrap";
 import {BsTrashFill} from "react-icons/bs"
+import styled from "styled-components";
 
 function CartProduct(props){
     const cart = useContext(CartContext);
@@ -26,16 +27,16 @@ function CartProduct(props){
     }
 
     return(
-        <>
+        <Container>
         
             <Row>
                 <Col>
-                    <p>{productData.title}</p>
+                    <p style={{fontWeight: "bold"}}>{productData.title}</p>
                     <p>{(productData.price).toFixed(2)} Kr/stk</p>
                     <p>Rabatt: {checkSale().toFixed(2)} Kr</p>
                 </Col>
                 <Col>
-                    <p>Antall: {qty}</p>
+                    <p>{qty}</p>
                 </Col>
 
                 <Col>
@@ -45,8 +46,20 @@ function CartProduct(props){
             </Row>
             <Button size="xl" variant="danger" onClick={() => cart.deleteFromCart(id)}><BsTrashFill /></Button>
             <hr></hr>
-        </>
+        </Container>
     )
 }
+
+const Container = styled.div`
+    p{
+        text-align: center;
+    }
+
+    .col{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+`;
 
 export default CartProduct;
